@@ -1,0 +1,13 @@
+prefix=C:/Users/yozil/Desktop/My_Projects/Book_Recommendation/brvenv/Library
+exec_prefix=C:/Users/yozil/Desktop/My_Projects/Book_Recommendation/brvenv/Library
+libdir=C:/Users/yozil/Desktop/My_Projects/Book_Recommendation/brvenv/Library/lib
+sharedlibdir=C:/Users/yozil/Desktop/My_Projects/Book_Recommendation/brvenv/Library/lib
+includedir=C:/Users/yozil/Desktop/My_Projects/Book_Recommendation/brvenv/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
