@@ -53,7 +53,7 @@ pip install -r requirements.txt
 ### Running the Project
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/book-recommender-system.git
+    git clone https://github.com/yordanossimegnew/Book_Recommendation.git
     ```
 2. Navigate to the project directory:
     ```bash
