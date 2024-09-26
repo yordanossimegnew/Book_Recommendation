@@ -4,27 +4,32 @@ import numpy as np
 
 st.header("Book Recommender System using Machine Learning")
 # loading a model
-model = pickle.load(open("C:\\Users\\yozil\\Desktop\\My_Projects\\Book_Recommendation\\models\\model.pkl","rb"))
+model = pickle.load(open(
+    "C:\\Users\\yozil\\Desktop\\My_Projects\\Book_Recommendation\\models\\model.pkl", "rb"))
 
 # laoding files
-books_name = pickle.load(open("C:\\Users\\yozil\\Desktop\\My_Projects\\Book_Recommendation\\data\\processed_data\\books_name.pkl","rb"))
-book_pivot = pickle.load(open("C:\\Users\\yozil\\Desktop\\My_Projects\\Book_Recommendation\\data\\processed_data\\book_pivot.pkl","rb"))
-final_rating = pickle.load(open("C:\\Users\\yozil\\Desktop\\My_Projects\\Book_Recommendation\\data\\processed_data\\final_rating.pkl","rb"))
+books_name = pickle.load(open(
+    "C:\\Users\\yozil\\Desktop\\My_Projects\\Book_Recommendation\\data\\processed_data\\books_name.pkl", "rb"))
+book_pivot = pickle.load(open(
+    "C:\\Users\\yozil\\Desktop\\My_Projects\\Book_Recommendation\\data\\processed_data\\book_pivot.pkl", "rb"))
+final_rating = pickle.load(open(
+    "C:\\Users\\yozil\\Desktop\\My_Projects\\Book_Recommendation\\data\\processed_data\\final_rating.pkl", "rb"))
 
 # creat a selection box containing all the book names
-selected_books= st.selectbox(
+selected_books = st.selectbox(
     "Type or Select a book",
     books_name
 )
 
+
 def fetch_poster(suggestion):
-    book_name= []
+    book_name = []
     ids_index = []
-    poster_url= []
-    
+    poster_url = []
+
     for book_id in suggestion:
         book_name.append(book_pivot.index[book_id])
-        
+
     for name in book_name[0]:
         ids = np.where(final_rating["title"] == name)[0][0]
         ids_index.append(ids)
@@ -32,14 +37,16 @@ def fetch_poster(suggestion):
     for idx in ids_index:
         url = final_rating.iloc[idx]["url"]
         poster_url.append(url)
-        
+
     return poster_url
+
 
 def recommend_books(book_name):
     book_list = []
     book_id = np.where(book_pivot.index == book_name)[0][0]
-    distance, suggestion = model.kneighbors(book_pivot.iloc[book_id,:].values.reshape(1,-1),n_neighbors=6)
-    
+    distance, suggestion = model.kneighbors(
+        book_pivot.iloc[book_id, :].values.reshape(1, -1), n_neighbors=6)
+
     poster_url = fetch_poster(suggestion)
 
     for i in range(len(suggestion)):
@@ -52,7 +59,7 @@ def recommend_books(book_name):
 if st.button("Show Recommendation"):
     recommendation_books, poster_url = recommend_books(selected_books)
     col1, col2, col3, col4, col5 = st.columns(5)
-    
+
     with col1:
         st.text(recommendation_books[1])
         st.image(poster_url[1])
