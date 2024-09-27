@@ -2,7 +2,7 @@
 
 ![Books](https://github.com/yordanossimegnew/Book_Recommendation/blob/15416fb689862a3deb0da97e75fd91f5f4923364/book.jpg)
 
-![Streamlit Vid](https://github.com/yordanossimegnew/Book_Recommendation/blob/15416fb689862a3deb0da97e75fd91f5f4923364/book%20recommendation.mp4)
+![Streamlit Vid](https://github.com/yordanossimegnew/Book_Recommendation/blob/ca8c20cc30edcca04822e01169f3aca205b565c2/book%20recommendation.gif)
 
 This repository contains a **Book Recommender System** built using **Collaborative Filtering** and **Clustering** techniques. The project focuses on recommending books based on user ratings and provides an intuitive **Streamlit** web interface to display recommendations along with book covers.
 
